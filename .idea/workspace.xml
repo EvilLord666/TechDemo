@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ca7d4e1-2658-462b-97e2-bf55070698e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/beansConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ru/techdemo/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/beansConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/beansConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/techdemo/TechDemoApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="119">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,11 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/beansConfig.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            <state relative-caret-position="187">
+              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ru/techdemo/controllers/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -60,8 +68,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="spring-beans.schema" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,6 +80,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/ru/techdemo/TechDemoApp.java" />
+        <option value="$PROJECT_DIR$/src/beansConfig.xml" />
       </list>
     </option>
   </component>
@@ -125,7 +134,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569913203195" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569925519675" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -154,12 +163,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569912178119</updated>
-      <workItem from="1569912183997" duration="1644000" />
+      <workItem from="1569912183997" duration="2657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1644000" />
+    <option name="totallyTimeSpent" value="2657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -218,8 +227,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/techdemo/TechDemoApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -228,8 +237,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/beansConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        <state relative-caret-position="187">
+          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/techdemo/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>

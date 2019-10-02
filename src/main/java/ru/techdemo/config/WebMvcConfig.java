@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -13,7 +15,7 @@ import org.springframework.validation.Validator;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "ru.techdemo"})
+@ComponentScan(basePackages = { "ru.techdemo.controllers"})
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Bean
@@ -25,12 +27,22 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return resolver;
     }
 
-    @Bean
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp");
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/access/login").setViewName("login");
+    }
+
+    /*@Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         source.setBasename("messages");
         return source;
-    }
+    }*/
 
     // @Override
     /*public Validator getValidator() {

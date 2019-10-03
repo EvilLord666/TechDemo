@@ -10,7 +10,8 @@
     <packaging>war</packaging>
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <spring.version>5.0.0.RELEASE</spring.version>
+        <spring.version>5.2.0.RELEASE</spring.version>
+        <!--<spring.boot.version>2.0.0.RELEASE</spring.boot.version>-->
         <!--
         <hibernate.version>5.2.11.Final</hibernate.version>
         <hibernate.validator>5.4.1.Final</hibernate.validator>
@@ -114,6 +115,23 @@
             <groupId>hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb.version}</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         -->
     </dependencies>

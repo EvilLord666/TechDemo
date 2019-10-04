@@ -12,16 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
-    /*@Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-            .anyRequest().authenticated()
-            .and()
-            .oauth2Login();
-        
-
-    }*/
-    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.requestMatchers()

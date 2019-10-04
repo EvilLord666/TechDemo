@@ -13,16 +13,22 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
+/**********************************************************************************
+ * The authorization server will be generating tokens for an API client
+ *
+ *
+ *
+ **********************************************************************************/
+
 @Configuration
 @EnableAuthorizationServer
 public class Oauth2AuthorizationServerConfigAdapter extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security
-            .tokenKeyAccess("permitAll()")
-            .checkTokenAccess("isAuthenticated()")
-            .allowFormAuthenticationForClients();
+        security.tokenKeyAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()")
+                .allowFormAuthenticationForClients();
     }
 
     @Override

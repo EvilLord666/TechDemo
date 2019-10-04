@@ -11,7 +11,8 @@
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <spring.version>5.2.0.RELEASE</spring.version>
-        <!--<spring.boot.version>2.0.0.RELEASE</spring.boot.version>-->
+        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <oauth-auto.version>2.1.0.RELEASE</oauth-auto.version>
         <!--
         <hibernate.version>5.2.11.Final</hibernate.version>
         <hibernate.validator>5.4.1.Final</hibernate.validator>
@@ -28,6 +29,16 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
         <!-- Spring MVC Dependency -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -117,11 +128,28 @@
             <version>${hsqldb.version}</version>
         </dependency>
         -->
+        <!-- ================ OAUTH2 ==================== -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>${oauth-auto.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-client</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- ================ /OAUTH2 ==================== -->
         <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>

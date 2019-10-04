@@ -9,13 +9,40 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
+@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
-    @Override
+    /*@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
             .anyRequest().authenticated()
             .and()
             .oauth2Login();
+        
+
+    }*/
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.requestMatchers()
+          .antMatchers("/login", "/oauth/authorize")
+          .and()
+          .authorizeRequests()
+          .anyRequest().authenticated()
+          .and()
+          .formLogin().permitAll();
+    }
+ 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+            .withUser("humptydumpty")
+            .password(passwordEncoder().encode("123456"))
+            .roles("USER");
+    }
+     
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){ 
+        return new BCryptPasswordEncoder(); 
     }
 }

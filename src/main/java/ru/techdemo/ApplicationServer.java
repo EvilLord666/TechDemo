@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @SpringBootApplication
 public class ApplicationServer extends WebSecurityConfigurerAdapter {
-    public static void Main(String[] args){
+    public static void main(String[] args){
         SpringApplication.run(ApplicationServer.class, args);
     }
 }

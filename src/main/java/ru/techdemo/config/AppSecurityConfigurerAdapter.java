@@ -45,10 +45,19 @@ public class AppSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
             .httpBasic();
     }
     
+    
     private void configureAuthBasicSecurity(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
             .withUser("admin")
             .password(passwordEncoder().encode("123"))
             .roles("USER");
+    }
+    
+    private void configureHttpOauth2OpenAmSecurity(HttpSecurity http) throws Exception{
+        
+    }
+    
+    private void configureAuthOauth2OpenAm(AuthenticationManagerBuilder auth) throws Exception {
+        
     }
 }

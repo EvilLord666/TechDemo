@@ -26,14 +26,14 @@ public class Oauth2AuthorizationServerConfigAdapter extends AuthorizationServerC
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("permitAll()")
+        /*security.tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()")
-                .allowFormAuthenticationForClients();
+                .allowFormAuthenticationForClients();*/
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
+        /*clients.inMemory()
                .withClient("clientapp")
                .secret(passwordEncoder.encode("123456"))
                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
@@ -42,7 +42,7 @@ public class Oauth2AuthorizationServerConfigAdapter extends AuthorizationServerC
                .resourceIds("oauth2-resource")
                .redirectUris("http://localhost:8081/login")
                .accessTokenValiditySeconds(5000)
-               .refreshTokenValiditySeconds(50000);
+               .refreshTokenValiditySeconds(50000);*/
     }
     
     @Autowired

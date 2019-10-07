@@ -14,21 +14,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers()
+        /*http.requestMatchers()
           .antMatchers("/login", "/oauth/authorize")
           .and()
           .authorizeRequests()
           .anyRequest().authenticated()
           .and()
-          .formLogin().permitAll();
+          .formLogin().permitAll();*/
     }
  
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
+        /*auth.inMemoryAuthentication()
             .withUser("humptydumpty")
             .password(passwordEncoder().encode("123456"))
-            .roles("USER");
+            .roles("USER");*/
     }
      
     @Bean

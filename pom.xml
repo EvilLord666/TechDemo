@@ -39,13 +39,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
         <!-- Spring MVC Dependency -->
+        <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
+        -->
         <!-- Spring ORM -->
         <!--
         <dependency>
@@ -162,16 +168,24 @@
             <version>${spring.boot.version}</version>
         </dependency>
         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
+        <!--
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+        -->
         <plugins>
+            <!--
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
@@ -192,6 +206,22 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.8.v20171121</version>
+            </plugin>
+            -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>ru.techdemo.ApplicationServer</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

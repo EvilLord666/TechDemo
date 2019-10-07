@@ -13,25 +13,26 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
-/**********************************************************************************
+/**
+ * ********************************************************************************
  * The authorization server will be generating tokens for an API client
  *
  *
  *
- **********************************************************************************/
-
-@Configuration
-@EnableAuthorizationServer
+ *********************************************************************************
+ */
+//@Configuration
+//@EnableAuthorizationServer
 public class Oauth2AuthorizationServerConfigAdapter extends AuthorizationServerConfigurerAdapter {
 
-    @Override
+    //@Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         /*security.tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()")
                 .allowFormAuthenticationForClients();*/
     }
 
-    @Override
+    //@Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         /*clients.inMemory()
                .withClient("clientapp")
@@ -44,7 +45,7 @@ public class Oauth2AuthorizationServerConfigAdapter extends AuthorizationServerC
                .accessTokenValiditySeconds(5000)
                .refreshTokenValiditySeconds(50000);*/
     }
-    
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+
+    //@Autowired
+    //private BCryptPasswordEncoder passwordEncoder;
 }

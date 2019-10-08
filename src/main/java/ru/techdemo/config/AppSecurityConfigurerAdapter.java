@@ -29,6 +29,15 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+/*
+ *
+ *   AuthenticationManager: Authenticates the request
+ *   TokenStore: Stores the OAuth2 tokens in memory
+ *   TokenStoreUserApprovalHandler: Remembers the approval decisions by consulting existing tokens
+ *   TokenApprovalStore: An ApprovalStore that works with an existing TokenStore
+ *
+ */
+
 @Configuration
 @EnableWebSecurity
 public class AppSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {

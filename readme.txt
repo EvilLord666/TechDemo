@@ -28,6 +28,7 @@ Response is: 200 OK with body
 
 2) Accessing protected resource using access_token (1c9c15d6-302c-4729-826c-257594330396)
 with Authorization type Bearer with value = access_token
+to localhost:8080/api/users and i am getting test output: {"userId": "0", "userName": "admin"}
 
 ###########################################################################################################################################
 ######################################################## OPEN AM SECTION ##################################################################

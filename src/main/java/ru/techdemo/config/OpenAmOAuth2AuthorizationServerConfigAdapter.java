@@ -47,7 +47,7 @@ public class OpenAmOAuth2AuthorizationServerConfigAdapter extends AuthorizationS
                .secret(passwordEncoder.encode("12345678"))
                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
                .authorities("READ_ONLY_CLIENT")
-               .scopes("\"read\", \"write\", \"trust\"")
+               .scopes("read", "write", "trust")
                .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
                //.resourceIds("oauth2-resource")
                //.redirectUris("http://localhost:8081/login")

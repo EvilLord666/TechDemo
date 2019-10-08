@@ -1,3 +1,36 @@
+#################################################### INTERNAL OAUTH2 SECTION ##############################################################
+Application deploys on localhost:8080, context path is /
+Therefore if we try to get resource /api/users we send HTTP GET on localhost:8080/api/users, but without Oauth2 token we getting
+401 Response with following JSON:
+{
+    "error": "unauthorized",
+    "error_description": "An Authentication object was not found in the SecurityContext"
+}
+
+So if we would like to pass authentication we shold
+1) Issue new token using basic authorization:
+Send POST localhost:8080/oauth/token
+with Basic Authorization (see globalUserDetails, actually it is local stored in AuthorizationService code credentials - mjolnir : 12345678)
+header with content-type -  x-www-form-url-encoded (application/x-www-form-urlencoded)
+body content is key-value pairs:
+             username : root
+             password : 123
+             grant_type : password
+
+Response is: 200 OK with body
+{
+    "access_token": "1c9c15d6-302c-4729-826c-257594330396",
+    "token_type": "bearer",
+    "refresh_token": "fc854cbf-5f57-4011-8697-47eeb8757151",
+    "expires_in": 4989,
+    "scope": "read write trust"
+}
+
+2) Accessing protected resource using access_token (1c9c15d6-302c-4729-826c-257594330396)
+with Authorization type Bearer with value = access_token
+
+###########################################################################################################################################
+######################################################## OPEN AM SECTION ##################################################################
 OpenAM provides the following three OAuth 2.0 endpoints with the last one, tokeninfo, used for validating tokens:
 
 /oauth2/authorize
@@ -13,6 +46,8 @@ Example: https://openam.example.com:8443/openam/oauth2/access_token
 /oauth2/tokeninfo
 Endpoint not defined in RFC 6749, used to validate tokens, and to retrieve information such as scopes
 
-Given an access token, a resource server can perform an HTTP GET on /oauth2/tokeninfo?access_token=token-id to retrieve a JSON object indicating token_type, expires_in, scope, and the access_token ID.
+Given an access token, a resource server can perform an HTTP GET on /oauth2/tokeninfo?access_token=token-id to retrieve a 
+JSON object indicating token_type, expires_in, scope, and the access_token ID.
 
 Example: https://openam.example.com:8443/openam/oauth2/tokeninfo
+###########################################################################################################################################

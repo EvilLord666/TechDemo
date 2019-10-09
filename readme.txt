@@ -1,3 +1,14 @@
+################################################## GENERAL DESCRIPTION SECTION ############################################################
+Project contains following components and layers
+    1) DAL - data access layer containing:
+        1.1) Context interface and it Mock implementation, Context is a Collection of IRepository<>
+        1.2) Repository interface and it basic implementation
+        1.3) Entities - persistent classes (Role, User)
+    2) Authorization:
+       2.1) Internal basic authorization
+       2.2) OAuth2 with internal authorization server
+       2.3) OAuth2 with OpenAm authorization server
+###########################################################################################################################################
 #################################################### INTERNAL OAUTH2 SECTION ##############################################################
 Application deploys on localhost:8080, context path is /
 Therefore if we try to get resource /api/users we send HTTP GET on localhost:8080/api/users, but without Oauth2 token we getting

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsersController {
     
+    // todo: umv: implement proiperly, get from context
     @RequestMapping("/api/users")
     public String get(){
         return "{\"userId\": \"0\", \"userName\": \"admin\"}";

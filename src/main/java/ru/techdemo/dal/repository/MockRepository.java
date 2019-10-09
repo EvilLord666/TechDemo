@@ -10,33 +10,30 @@ import java.util.Objects;
 import java.util.Optional;
 import ru.techdemo.dal.entity.Entity;
 
-/**
- *
- * @author michael
- */
-public class MockRepository implements IRepository<Entity<Long>, Long> {
 
-    public MockRepository(List<Entity<Long>> dataSource){
+public class MockRepository<TEntity extends Entity> implements IRepository<TEntity, Long> {
+
+    public MockRepository(List<TEntity> dataSource){
         this.dataSource = dataSource;
     }
     
     @Override
-    public Entity<Long> getById(Long id) {
-        Optional<Entity<Long>> optional = dataSource.stream().filter(item -> Objects.equals(item.getId(), id)).findAny();
-        Entity entity = optional.get();
+    public TEntity getById(Long id) {
+        Optional<TEntity> optional = dataSource.stream().filter(item -> Objects.equals(item.getId(), id)).findAny();
+        TEntity entity = optional.get();
         return entity;
     }
 
     @Override
-    public List<Entity<Long>> getAll() {
+    public List<TEntity> getAll() {
         return dataSource;
     }
 
     @Override
-    public Entity addOrUpdate(Entity<Long> item) {
-        if (item.getId() > 0)  // update
+    public TEntity addOrUpdate(TEntity item) {
+        if ((Long)item.getId() > 0)  // update
         {
-            Entity<Long> entity = getById(item.getId());
+            Entity<Long> entity = getById((Long)item.getId());
             if(entity == null)
                 return null;
             int itemIndex = dataSource.indexOf(entity);
@@ -64,5 +61,5 @@ public class MockRepository implements IRepository<Entity<Long>, Long> {
         return id + 1;
     }
     
-    private final List<Entity<Long>> dataSource;
+    private final List<TEntity> dataSource;
 }

@@ -7,6 +7,15 @@ package ru.techdemo.dal.entity;
 
 public class RoleEntity extends Entity<Long> {
     
+    public RoleEntity(){
+        
+    }
+    
+    public RoleEntity(Long id, String roleName){
+        setId(id);
+        this.roleName = roleName;
+    }
+    
     public String getRoleName(){
         return roleName;
     }

@@ -6,13 +6,14 @@
 package ru.techdemo.dal.repository;
 
 import java.util.List;
+import ru.techdemo.dal.entity.Entity;
 
 /**
  *
  * @param <TEntity>
  * @param <TKey>
  */
-public interface IRepository<TEntity, TKey> {
+public interface IRepository<TEntity extends Entity, TKey> {
     public TEntity getById(TKey id);
     public List<TEntity> getAll();
     public TEntity addOrUpdate(TEntity item);

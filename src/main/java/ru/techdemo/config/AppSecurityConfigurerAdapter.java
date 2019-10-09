@@ -35,6 +35,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import ru.techdemo.config.securityImpl.InternalOAuth2ConfigAdapterImpl;
 
 /*
  *
@@ -52,57 +53,12 @@ public class AppSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     @Override
     @Order(Ordered.HIGHEST_PRECEDENCE)
     protected void configure(HttpSecurity http) throws Exception {
-        configureHttpOauth2OpenAmSecurity(http);
-        //configureHttpBasicSecurity(http);
-    }
- 
-    /*@Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //configureAuthBasicSecurity(auth);
-    }*/
-     
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){ 
-        return new BCryptPasswordEncoder(); 
-    }
-    
-    private void configureHttpBasicSecurity(HttpSecurity http) throws Exception{
-        http.csrf().disable()
-            .authorizeRequests().anyRequest().authenticated()
-            .and()
-            .httpBasic();
-    }
-    
-    private void configureAuthBasicSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-            .withUser("admin")
-            .password(passwordEncoder().encode("123"))
-            .roles("USER");
-    }
-    
-    private void configureHttpOauth2OpenAmSecurity(HttpSecurity http) throws Exception{
-        http.sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers("/about").permitAll() 
-            .antMatchers("/signup").permitAll()
-            .antMatchers("/oauth/token").permitAll()
-            .antMatchers("/api/**").authenticated()
-            //.antMatchers("/api/**").hasRole("USER")
-            //.anyRequest().authenticated()
-            .and()
-            .httpBasic()
-            .realmName("SIMPLEST");
+        securityConfigAdapter.configure(http);
     }
     
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-        .withUser("admin").password(passwordEncoder().encode("123")).roles("ADMIN","USER").and()
-        .withUser("root").password(passwordEncoder().encode("123")).roles("ADMIN","USER").and()
-        .withUser("michael").password(passwordEncoder().encode("1234")).roles("USER");
+        securityConfigAdapter.configure(auth);
     }
     
     @Override
@@ -136,4 +92,6 @@ public class AppSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     
     @Autowired
     private ClientDetailsService clientDetailsService;
+    
+    private final InternalOAuth2ConfigAdapterImpl securityConfigAdapter = new InternalOAuth2ConfigAdapterImpl();
 }

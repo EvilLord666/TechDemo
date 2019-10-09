@@ -9,18 +9,28 @@ import java.util.List;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.provisioning.InMemoryUserDetailsManagerConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import ru.techdemo.dal.IApplicationDataContext;
 import ru.techdemo.dal.InMemoryMockApplicationContext;
 import ru.techdemo.dal.entity.UserEntity;
 
-
-public class InternalBasicSecurityConfigAdapterImpl {
+public class InternalOAuth2ConfigAdapterImpl {
     
     public void configure(HttpSecurity http) throws Exception{
-            http.csrf().disable()
-                .authorizeRequests().anyRequest().authenticated()
-                .and()
-                .httpBasic();
+        http.sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/about").permitAll() 
+            .antMatchers("/signup").permitAll()
+            .antMatchers("/oauth/token").permitAll()
+            .antMatchers("/api/**").authenticated()
+            //.antMatchers("/api/**").hasRole("USER")
+            //.anyRequest().authenticated()
+            .and()
+            .httpBasic()
+            .realmName("SIMPLEST");
     }
     
     public void configure(AuthenticationManagerBuilder auth) throws Exception {

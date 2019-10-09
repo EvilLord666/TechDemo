@@ -8,15 +8,7 @@ package ru.techdemo.entity;
 import java.util.List;
 import java.util.ArrayList;
 
-public class UserEntity {
-    
-    public Long getId(){
-        return id;
-    }
-    
-    public void setId(Long id){
-        this.id = id;
-    }
+public class UserEntity extends Entity<Long> {
     
     public String getUserName(){
         return userName;
@@ -58,7 +50,6 @@ public class UserEntity {
         this.roles = roles;
     }
     
-    private Long id;
     private String userName;
     private String passwordHash;
     

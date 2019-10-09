@@ -5,15 +5,19 @@
  */
 package ru.techdemo.entity;
 
-public class RoleEntity extends Entity<Long> {
+/**
+ *
+ * @param <TKey>
+ */
+public abstract class Entity<TKey> {
     
-    public String getRoleName(){
-        return roleName;
+    public TKey getId(){
+        return id;
     }
     
-    public void setRoleName(String roleName){
-        this.roleName = roleName;
+    public void setId(TKey id){
+        this.id = id;
     }
     
-    String roleName;
+    TKey id;
 }

@@ -66,6 +66,11 @@ public class AppSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+    
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
  
     @Bean
     public TokenStore tokenStore() {

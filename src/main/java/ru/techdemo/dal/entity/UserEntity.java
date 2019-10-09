@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.techdemo.entity;
+package ru.techdemo.dal.entity;
 
 import java.util.List;
 import java.util.ArrayList;

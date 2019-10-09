@@ -5,8 +5,13 @@
  */
 package ru.techdemo.config.securityImpl;
 
+import java.util.List;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.provisioning.InMemoryUserDetailsManagerConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import ru.techdemo.dal.IApplicationDataContext;
+import ru.techdemo.dal.InMemoryMockApplicationContext;
+import ru.techdemo.dal.entity.UserEntity;
 
 
 public class InternalBasicSecurityConfigAdapterImpl {
@@ -18,9 +23,12 @@ public class InternalBasicSecurityConfigAdapterImpl {
     }
     
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        /*auth.inMemoryAuthentication()
-            .withUser("admin")
-            .password(passwordEncoder().encode("123"))
-            .roles("USER");*/
+        InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder> details = auth.inMemoryAuthentication();
+        List<UserEntity> users = context.getUsersRepository().getAll();
+        users.forEach((user) -> {
+            details.withUser(user.getUserName()).password(user.getPasswordHash()).roles(user.getRolesRepresentation());
+        });
     }
+    
+    private final IApplicationDataContext context = new InMemoryMockApplicationContext();
 }

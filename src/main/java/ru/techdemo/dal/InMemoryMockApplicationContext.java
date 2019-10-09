@@ -6,7 +6,9 @@
 package ru.techdemo.dal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ru.techdemo.dal.entity.RoleEntity;
 import ru.techdemo.dal.entity.UserEntity;
 import ru.techdemo.dal.repository.IRepository;
@@ -43,8 +45,9 @@ public class InMemoryMockApplicationContext implements IApplicationDataContext {
         RoleEntity adminRole = rolesRepository.getById(ADMIN_ROLE_ID);
         RoleEntity userRole = rolesRepository.getById(USER_ROLE_ID);
         
-        
-        
+        users.add(new UserEntity(1L, "admin", passwordEncoder.encode("123"), "ADMIN", "ADMIN", Arrays.asList(adminRole, userRole)));
+        users.add(new UserEntity(1L, "root", passwordEncoder.encode("123"), "SUPERUSER", "SUPERUSER", Arrays.asList(adminRole, userRole)));
+        users.add(new UserEntity(1L, "evillord", passwordEncoder.encode("1234"), "Michael", "Ushakov", Arrays.asList(userRole)));
         return users;
     }
     
@@ -54,4 +57,5 @@ public class InMemoryMockApplicationContext implements IApplicationDataContext {
     
     private IRepository<UserEntity, Long> usersRepository;
     private IRepository<RoleEntity, Long> rolesRepository;
+    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
 }

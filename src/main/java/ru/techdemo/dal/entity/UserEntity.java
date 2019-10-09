@@ -10,6 +10,19 @@ import java.util.ArrayList;
 
 public class UserEntity extends Entity<Long> {
     
+    public UserEntity(){
+        
+    }
+    
+    public UserEntity(Long id, String userName, String passwordHash, String firstName, String lastName, List<RoleEntity> roles){
+        setId(id);
+        this.userName = userName;
+        this.passwordHash = passwordHash;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.roles = roles;
+    }
+    
     public String getUserName(){
         return userName;
     }
@@ -48,6 +61,17 @@ public class UserEntity extends Entity<Long> {
     
     public void setRoles(List<RoleEntity> roles){
         this.roles = roles;
+    }
+    
+    public String[] getRolesRepresentation(){
+        String[] rolesArray = new String[roles.size()];
+        int index = 0;
+        for(RoleEntity role : roles){
+            rolesArray[index] = role.getRoleName();
+            index ++;
+        }
+            
+        return rolesArray;
     }
     
     private String userName;

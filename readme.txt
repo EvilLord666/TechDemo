@@ -45,6 +45,18 @@ to localhost:8080/api/users and i am getting test output: {"userId": "0", "userN
 ######################################################## OPEN AM SECTION ##################################################################
 OpenAM provides the following three OAuth 2.0 endpoints with the last one, tokeninfo, used for validating tokens:
 
+My OpenAM was deployed on localhost:8899 at context path /OpenAM-14.4.2
+Therefore OpenAm base address is: http://localhost:8899/OpenAM-14.4.2
+
+Authorize endpoint: http://localhost:8899/OpenAM-14.4.2/oauth2/authorize?realm=/abcdemo
+
+
+
+First step is to get access token
+
+http://localhost:8899/OpenAM-14.4.2/oauth2/realms/simplest/access_token
+
+
 /oauth2/authorize
 Authorization endpoint defined in RFC 6749, used to obtain an authorization grant from the resource owner
 

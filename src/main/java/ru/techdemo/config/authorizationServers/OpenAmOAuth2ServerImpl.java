@@ -5,6 +5,14 @@
  */
 package ru.techdemo.config.authorizationServers;
 
+import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+
 public class OpenAmOAuth2ServerImpl {
+    public void configure(AuthorizationServerSecurityConfigurer oauthServer)  throws Exception {
+    }
     
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        
+    }
 }

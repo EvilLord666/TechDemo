@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.techdemo.config;
+package ru.techdemo.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,8 +19,8 @@ import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHand
  *
  */
 
-@Configuration
-@EnableResourceServer
+//@Configuration
+//@EnableResourceServer
 public class ResourceServerConfigAdapter extends ResourceServerConfigurerAdapter {
     
     @Override

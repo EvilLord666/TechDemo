@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          openam:
+            client-id: oauth2agent
+            client-secret: 12345678
+            clientAuthenticationMethod: post
+            authorizationGrantType: authorization_code
+            scope: profile
+            redirectUriTemplate: "{baseUrl}/login/oauth2/code/openam"
+            ## clientName: FourScouts client
+        provider:
+          discord:
+            authorizationUri: http://localhost:8899/OpenAM-14.4.2/oauth2/authorize?realm=abcdemo
+            tokenUri: http://localhost:8899/OpenAM-14.4.2/oauth2/access_token?realm=/abcdemo
+            ## userInfoUri: https://discordapp.com/api/users/@me
+            usernameAttribute: username

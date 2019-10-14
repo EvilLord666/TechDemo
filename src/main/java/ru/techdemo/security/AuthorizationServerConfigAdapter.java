@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.techdemo.config;
+package ru.techdemo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.approval.UserApprovalHandler;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import ru.techdemo.config.authorizationServers.InternalOAuth2ServerImpl;
+import ru.techdemo.security.authorizationServers.InternalOAuth2ServerImpl;
 
 /**
  * ********************************************************************************
@@ -29,8 +29,8 @@ import ru.techdemo.config.authorizationServers.InternalOAuth2ServerImpl;
  *********************************************************************************
  */
 
-@Configuration
-@EnableAuthorizationServer
+//@Configuration
+//@EnableAuthorizationServer
 public class AuthorizationServerConfigAdapter extends AuthorizationServerConfigurerAdapter {
 
     @Override

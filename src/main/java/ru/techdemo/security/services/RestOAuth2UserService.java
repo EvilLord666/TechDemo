@@ -22,7 +22,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2UserAuthority;
 import org.springframework.web.client.RestOperations;
 
-public class RestOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class RestOAuth2UserService {/* implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
     
     public RestOAuth2UserService(RestOperations restOperations){
         this.restOperations = restOperations;
@@ -46,5 +46,5 @@ public class RestOAuth2UserService implements OAuth2UserService<OAuth2UserReques
         return new DefaultOAuth2User(authorities, userAttributes, userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName());
     }
     
-    private RestOperations restOperations;
+    private RestOperations restOperations;*/
 }

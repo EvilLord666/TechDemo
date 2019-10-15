@@ -17,7 +17,7 @@ import org.springframework.util.StringUtils;
 public class AccessResponseDto {
     
     
-    AccessResponseDto(String accessToken, String tokenType, int expiresIn, String refreshToken, String scope) {
+    /*AccessResponseDto(String accessToken, String tokenType, int expiresIn, String refreshToken, String scope) {
         this.accessToken = accessToken;
         this.tokenType = tokenType;
         this.expiresIn = expiresIn;
@@ -53,5 +53,5 @@ public class AccessResponseDto {
     @JsonProperty("refresh_token")
     private String refreshToken;
 
-    private String scope;
+    private String scope;*/
 }

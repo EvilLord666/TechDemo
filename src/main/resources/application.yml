@@ -1,0 +1,22 @@
+spring:
+    security:
+        basic:
+            enabled: false
+        oauth2:
+            client:
+            clientId: oauth2agent
+            clientSecret: 12345678
+            accessTokenUri: http://localhost:8899/OpenAM-14.4.2/oauth2/access_token?realm=/abcdemo
+            userAuthorizationUri: http://localhost:8899/OpenAM-14.4.2/oauth2/authorize?realm=abcdemo
+            authorizedGrantTypes: authorization_code,refresh_token
+            scope:
+            tokenName: accessToken
+            redirectUri: https://localhost:8080/api/users
+            authenticationScheme: query
+            clientAuthenticationScheme: header
+        resource:
+            userInfoUri:  http://localhost:8899/OpenAM-14.4.2/oauth2/userinfo
+logging:
+    level:
+        org:
+            springframework: DEBUG

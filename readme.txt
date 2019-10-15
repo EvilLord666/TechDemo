@@ -75,3 +75,8 @@ JSON object indicating token_type, expires_in, scope, and the access_token ID.
 
 Example: https://openam.example.com:8443/openam/oauth2/tokeninfo
 ###########################################################################################################################################
+############################################################## RESOURCES ##################################################################
+OAuth protocol description: https://tools.ietf.org/html/rfc6749#section-3
+
+Spring Configuration: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
+###########################################################################################################################################

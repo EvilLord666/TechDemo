@@ -21,8 +21,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestOperations;
 import ru.techdemo.dto.AccessResponseDto;
 
-public class OpenAmOAuth2Client implements OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> {
-
+public class OpenAmOAuth2Client{ // implements OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> {
+/*
     public OpenAmOAuth2Client(RestOperations restOperations){
         this.restOperations = restOperations;
     }
@@ -60,5 +60,5 @@ public class OpenAmOAuth2Client implements OAuth2AccessTokenResponseClient<OAuth
             .build();
     }
     
-    private final RestOperations restOperations;
+    private final RestOperations restOperations;*/
 }

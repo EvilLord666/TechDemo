@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import ru.techdemo.dal.entity.RoleEntity;
 import ru.techdemo.dal.entity.UserEntity;
 import ru.techdemo.dal.repository.IRepository;
 import ru.techdemo.dal.repository.MockRepository;
 
 
+@Service
 public class InMemoryMockApplicationContext implements IApplicationDataContext {
 
     public InMemoryMockApplicationContext(){

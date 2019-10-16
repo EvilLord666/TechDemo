@@ -20,7 +20,7 @@ Spring:
 @EnableOAuth2Sso makes application an OAuth2 client
 ############################################################################################################################################
 #################################################### INTERNAL OAUTH2 SECTION ###############################################################
-Application deploys on localhost:8080, context path is /
+Application deploying on localhost:8080, context path is /
 Therefore if we try to get resource /api/users we send HTTP GET on localhost:8080/api/users, but without Oauth2 token we getting
 401 Response with following JSON:
 {
@@ -82,6 +82,7 @@ You'll receive following JSON on userInfo request:
 {
     "sub": "mjolnir"
 }
+
 ###########################################################################################################################################
 ############################################################## RESOURCES ##################################################################
 OAuth protocol description: https://tools.ietf.org/html/rfc6749#section-3

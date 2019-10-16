@@ -8,9 +8,11 @@ security:
                 accessTokenUri: http://localhost:8899/OpenAM-14.4.2/oauth2/access_token?realm=abcdemo
                 userAuthorizationUri: http://localhost:8899/OpenAM-14.4.2/oauth2/authorize?realm=abcdemo
                 authorizedGrantTypes: code token
-                ## scope: local
+                scope: local
+                username: mjolnir
+                password: 12345678
                 ## tokenName: accessToken
-                ## redirectUri: https://localhost:8080/login
+                redirectUri: https://localhost:8080/api/users
                 ## authenticationScheme: query
                 ## clientAuthenticationScheme: header
             resource:

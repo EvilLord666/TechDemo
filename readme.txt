@@ -49,7 +49,68 @@ Response is: 200 OK with body
 
 2) Accessing protected resource using access_token (1c9c15d6-302c-4729-826c-257594330396)
 with Authorization type Bearer with value = access_token
-to localhost:8080/api/users and i am getting test output: {"userId": "0", "userName": "admin"}
+to localhost:8080/api/users and i am getting test output:
+
+[
+    {
+        "id": 1,
+        "userName": "admin",
+        "passwordHash": "$2a$10$aG04e37GbFM27mPjiEILEuJPd7CzGuKkcHpW7IaVBlfaOOwxf5MDm",
+        "firstName": "ADMIN",
+        "lastName": "ADMIN",
+        "roles": [
+            {
+                "id": 1,
+                "roleName": "ADMIN"
+            },
+            {
+                "id": 2,
+                "roleName": "USER"
+            }
+        ],
+        "rolesRepresentation": [
+            "ADMIN",
+            "USER"
+        ]
+    },
+    {
+        "id": 1,
+        "userName": "root",
+        "passwordHash": "$2a$10$XXAecCz1UHUySSeepljbdeUopL7VszH4dip8yWKySM3JcOIoBytw.",
+        "firstName": "SUPERUSER",
+        "lastName": "SUPERUSER",
+        "roles": [
+            {
+                "id": 1,
+                "roleName": "ADMIN"
+            },
+            {
+                "id": 2,
+                "roleName": "USER"
+            }
+        ],
+        "rolesRepresentation": [
+            "ADMIN",
+            "USER"
+        ]
+    },
+    {
+        "id": 1,
+        "userName": "evillord",
+        "passwordHash": "$2a$10$Ybwt13dpX9qeWQuQofI7K.nPkUWS/3/0ib6CmCuyThyvPHojcA88q",
+        "firstName": "Michael",
+        "lastName": "Ushakov",
+        "roles": [
+            {
+                "id": 2,
+                "roleName": "USER"
+            }
+        ],
+        "rolesRepresentation": [
+            "USER"
+        ]
+    }
+]
 
 ###########################################################################################################################################
 ######################################################## OPEN AM SECTION ##################################################################

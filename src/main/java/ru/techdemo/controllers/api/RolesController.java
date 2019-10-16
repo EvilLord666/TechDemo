@@ -5,10 +5,29 @@
  */
 package ru.techdemo.controllers.api;
 
-/**
- *
- * @author michael
- */
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import ru.techdemo.dal.IApplicationDataContext;
+import ru.techdemo.dal.entity.RoleEntity;
+
+@RestController
 public class RolesController {
     
+    @GetMapping("/api/roles")
+    public List<RoleEntity> get(){
+        List<RoleEntity> roles = dataContext.getRolesRepository().getAll();
+        return roles;
+    }
+    
+    @GetMapping("/api/roles/{id}")
+    public RoleEntity get(@PathVariable(required = true)Long id){
+        RoleEntity role = dataContext.getRolesRepository().getById(id);
+        return role;
+    }
+    
+    @Autowired
+    IApplicationDataContext dataContext;
 }

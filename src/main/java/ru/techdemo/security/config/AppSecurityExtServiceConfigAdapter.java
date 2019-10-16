@@ -26,12 +26,12 @@ import ru.techdemo.security.client.OpenAmOAuth2Client;
 import ru.techdemo.security.services.RestOAuth2UserService;
 
 
-//@Configuration
+@Configuration
 //@EnableWebSecurity
 //@EnableOAuth2Sso
 public class AppSecurityExtServiceConfigAdapter extends WebSecurityConfigurerAdapter {
     
-    /*@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -40,5 +40,5 @@ public class AppSecurityExtServiceConfigAdapter extends WebSecurityConfigurerAda
             .antMatchers("/api/**").authenticated()
             .antMatchers("/about").permitAll();
         
-    }*/
+    }
 }

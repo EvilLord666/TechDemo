@@ -1,4 +1,4 @@
-################################################## GENERAL DESCRIPTION SECTION ############################################################
+################################################### PROJECT DESCRIPTION SECTION ############################################################
 Project contains following components and layers
     1) DAL - data access layer containing:
         1.1) Context interface and it Mock implementation, Context is a Collection of IRepository<>
@@ -8,8 +8,18 @@ Project contains following components and layers
        2.1) Internal basic authorization
        2.2) OAuth2 with internal authorization server
        2.3) OAuth2 with OpenAm authorization server
-###########################################################################################################################################
-#################################################### INTERNAL OAUTH2 SECTION ##############################################################
+############################################################################################################################################
+########################################################## OAUTH2 TERMS ####################################################################
+Resource Owner — an entity that is able to grant access to its protected resources
+Authorization Server — grants access tokens to Clients after successfully authenticating Resource Owners and obtaining their authorization
+Resource Server — a component that requires an access token to allow, or at least consider, access to its resources
+Client — an entity that is capable of obtaining access tokens from authorization servers
+
+Spring:
+@EnableResourceServer configures component as entity that can obtain access_token (in my final case it External Identity Server = OpenAm)
+@EnableOAuth2Sso makes application an OAuth2 client
+############################################################################################################################################
+#################################################### INTERNAL OAUTH2 SECTION ###############################################################
 Application deploys on localhost:8080, context path is /
 Therefore if we try to get resource /api/users we send HTTP GET on localhost:8080/api/users, but without Oauth2 token we getting
 401 Response with following JSON:

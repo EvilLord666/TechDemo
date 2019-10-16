@@ -14,9 +14,6 @@ import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHand
 /*
  *  Resource server is WHAT we protecting
  *
- *
- *
- *
  */
 
 @Configuration

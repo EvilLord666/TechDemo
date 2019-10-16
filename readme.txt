@@ -77,6 +77,9 @@ Example: https://openam.example.com:8443/openam/oauth2/tokeninfo
 ###########################################################################################################################################
 ############################################################## RESOURCES ##################################################################
 OAuth protocol description: https://tools.ietf.org/html/rfc6749#section-3
+OAuth + spring (use vpn here): https://www.baeldung.com/spring-security-oauth
 
 Spring Configuration: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
+
+Way of what to switch (use vpn here): https://www.baeldung.com/spring-security-oauth2-enable-resource-server-vs-enable-oauth2-sso
 ###########################################################################################################################################

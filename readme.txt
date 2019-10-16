@@ -58,32 +58,30 @@ OpenAM provides the following three OAuth 2.0 endpoints with the last one, token
 My OpenAM was deployed on localhost:8899 at context path /OpenAM-14.4.2
 Therefore OpenAm base address is: http://localhost:8899/OpenAM-14.4.2
 
-Authorize endpoint: http://localhost:8899/OpenAM-14.4.2/oauth2/authorize?realm=/abcdemo
+Authorize endpoint: HTTP POST http://localhost:8899/OpenAM-14.4.2/oauth2/authorize?realm=/abcdemo (using for SSO)
 
+First step is to get access token (Realm is abcdemo)
 
+HTTP POST http://localhost:8899/OpenAM-14.4.2/oauth2/access_token?realm=/abcdemo
 
-First step is to get access token
+You'll receive following json:
 
-http://localhost:8899/OpenAM-14.4.2/oauth2/realms/simplest/access_token
+{
+    "access_token": "e8ec0e37-42d4-4df5-b2e5-bfbaefcf6374",
+    "refresh_token": "c1ebed79-731e-4ab8-9f03-a8f3ab222e29",
+    "scope": "local",
+    "token_type": "Bearer",
+    "expires_in": 3599
+}
 
+For other operation you should use received OAuth2 token as Bearer %token%
 
-/oauth2/authorize
-Authorization endpoint defined in RFC 6749, used to obtain an authorization grant from the resource owner
+HTTP GET http://localhost:8899/OpenAM-14.4.2/oauth2/userinfo?realm=/abcdemo
 
-Example: https://openam.example.com:8443/openam/oauth2/authorize
-
-/oauth2/access_token
-Token endpoint defined in RFC 6749, used to obtain an access token from the authorization server
-
-Example: https://openam.example.com:8443/openam/oauth2/access_token
-
-/oauth2/tokeninfo
-Endpoint not defined in RFC 6749, used to validate tokens, and to retrieve information such as scopes
-
-Given an access token, a resource server can perform an HTTP GET on /oauth2/tokeninfo?access_token=token-id to retrieve a 
-JSON object indicating token_type, expires_in, scope, and the access_token ID.
-
-Example: https://openam.example.com:8443/openam/oauth2/tokeninfo
+You'll receive following JSON on userInfo request:
+{
+    "sub": "mjolnir"
+}
 ###########################################################################################################################################
 ############################################################## RESOURCES ##################################################################
 OAuth protocol description: https://tools.ietf.org/html/rfc6749#section-3

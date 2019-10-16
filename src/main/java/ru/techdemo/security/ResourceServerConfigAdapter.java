@@ -27,7 +27,7 @@ public class ResourceServerConfigAdapter extends ResourceServerConfigurerAdapter
         http.csrf().disable()
             .authorizeRequests()
             .antMatchers("/api/**",
-              "/login").permitAll()
+              "/login").authenticated()
             .anyRequest().authenticated().and()
             .logout().permitAll().logoutSuccessUrl("/");
     }

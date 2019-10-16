@@ -34,7 +34,7 @@ public class AppSecurityExtServiceConfigAdapter extends WebSecurityConfigurerAda
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
             .and()
             .authorizeRequests()
             .antMatchers("/api/**").authenticated()

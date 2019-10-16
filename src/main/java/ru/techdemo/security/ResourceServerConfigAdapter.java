@@ -26,8 +26,7 @@ public class ResourceServerConfigAdapter extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
-            .antMatchers("/api/**",
-              "/login").authenticated()
+            .antMatchers("/api/**", "/login").authenticated()
             .anyRequest().authenticated().and()
             .logout().permitAll().logoutSuccessUrl("/");
     }

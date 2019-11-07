@@ -7,7 +7,8 @@ Project contains following components and layers
     2) Authorization:
        2.1) Internal basic authorization
        2.2) OAuth2 with internal authorization server
-       2.3) OAuth2 with OpenAm authorization server
+       2.3) OAuth2 with KeyCloak (\src\main\resources\application.yml) and 
+            OpenAm (src\main\resources\configsBackups\OpenAm_Application) authorization server
 ############################################################################################################################################
 ########################################################## OAUTH2 TERMS ####################################################################
 Resource Owner — an entity that is able to grant access to its protected resources
@@ -16,7 +17,7 @@ Resource Server — a component that requires an access token to allow, or at leas
 Client — an entity that is capable of obtaining access tokens from authorization servers
 
 Spring:
-@EnableResourceServer configures component as entity that can obtain access_token (in my final case it External Identity Server = OpenAm)
+@EnableResourceServer configures component as entity that can obtain access_token (in my final case it External Identity Server = KeyCloak or OpenAm)
 @EnableOAuth2Sso makes application an OAuth2 client
 ############################################################################################################################################
 #################################################### INTERNAL OAUTH2 SECTION ###############################################################
@@ -147,7 +148,23 @@ You'll receive following JSON on userInfo request:
 ###########################################################################################################################################
 ####################################################### KEY CLOAK #########################################################################
 My KeyCloak server is running on http://127.0.0.1:8890/, realm is master
-it is possible to see endpoints 
+it is possible to see endpoints here
+
+Token generation Endpoint is: http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/token
+we like for openAm sending data through body as x-www-form-urlencoded and we sending 
+(client_id, client_secret, grant_type, username, password and scope)
+
+UserInfo endpoint is - http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/userinfo
+UserInfo data is:
+{
+    "sub": "d2f8b2b7-baab-42df-9567-cc2871dc1ff8",
+    "email_verified": false,
+    "user_name": "m_ushakov",
+    "name": "Mikhail Ushakov",
+    "preferred_username": "m_ushakov",
+    "given_name": "Mikhail",
+    "family_name": "Ushakov"
+}
 ###########################################################################################################################################
 ############################################################## RESOURCES ##################################################################
 OAuth protocol description: https://tools.ietf.org/html/rfc6749#section-3

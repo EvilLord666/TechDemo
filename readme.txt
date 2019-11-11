@@ -1,14 +1,8 @@
-################################################### PROJECT DESCRIPTION SECTION ############################################################
-Project contains following components and layers
-    1) DAL - data access layer containing:
-        1.1) Context interface and it Mock implementation, Context is a Collection of IRepository<>
-        1.2) Repository interface and it basic implementation
-        1.3) Entities - persistent classes (Role, User)
-    2) Authorization:
-       2.1) Internal basic authorization
-       2.2) OAuth2 with internal authorization server
-       2.3) OAuth2 with KeyCloak (\src\main\resources\application.yml) and 
-            OpenAm (src\main\resources\configsBackups\OpenAm_Application) authorization server
+############################################### OVERALL DESCRIPTION #########################################################################
+Project contains 2 types of projects
+    1) Resource Server is serviceProvider - allow access to resource for authenticated users who have rights (authorization) to access
+       In current example all users are allowed to access if they received valid token
+    2) Client app : we log into client app through Authorization Server
 ############################################################################################################################################
 ########################################################## OAUTH2 TERMS ####################################################################
 Resource Owner — an entity that is able to grant access to its protected resources
@@ -20,6 +14,19 @@ Spring:
 @EnableResourceServer configures component as entity that can obtain access_token (in my final case it External Identity Server = KeyCloak or OpenAm)
 @EnableOAuth2Sso makes application an OAuth2 client
 ############################################################################################################################################
+############################################### RESOURCE SERVER DESCRIPTION SECTION #########################################################
+Project contains following components and layers
+    1) DAL - data access layer containing:
+        1.1) Context interface and it Mock implementation, Context is a Collection of IRepository<>
+        1.2) Repository interface and it basic implementation
+        1.3) Entities - persistent classes (Role, User)
+    2) Authorization:
+       2.1) Internal basic authorization
+       2.2) OAuth2 with internal authorization server
+       2.3) OAuth2 with KeyCloak (\src\main\resources\application.yml) and 
+            OpenAm (src\main\resources\configsBackups\OpenAm_Application) authorization server
+############################################################################################################################################
+
 #################################################### INTERNAL OAUTH2 SECTION ###############################################################
 Application deploying on localhost:8080, context path is /
 Therefore if we try to get resource /api/users we send HTTP GET on localhost:8080/api/users, but without Oauth2 token we getting

@@ -4,8 +4,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html lang="en">
     <head>
-        <!-- Подключаем bootstrap CSS,
-            Spring boot автоматически замапит ресурс благодаря зависимости webjars в pom.xml -->
         <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.3.1/dist/css/bootstrap.min.css" />
         <!--
         <spring:url value="/css/main.css" var="springCss" />

@@ -10,7 +10,7 @@ security:
                 accessTokenUri: http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/token
                 userAuthorizationUri: http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/auth
                 authorizedGrantTypes: code token
-                scope: local
+                scope: profile
                 username: manager
                 password: 123
                 ## tokenName: accessToken

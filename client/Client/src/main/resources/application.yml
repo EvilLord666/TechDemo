@@ -1,5 +1,25 @@
 server:
     port: 9000
+    
+security:
+        basic:
+            enabled: false
+        oauth2:
+            client:
+                clientId: oauth2Agent
+                clientSecret: c08668ec-cfdb-41fb-8faa-52d27f3cbb16
+                accessTokenUri: http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/token
+                userAuthorizationUri: http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/auth
+                authorizedGrantTypes: code token
+                scope: profile
+                username: manager
+                password: 123
+                ## tokenName: accessToken
+                ## redirectUri: http://localhost:8080/api/users
+                ## authenticationScheme: query
+                ## clientAuthenticationScheme: header
+            resource:
+                userInfoUri: http://127.0.0.1:8890/auth/realms/master/protocol/openid-connect/userinfo
 logging:
     level:
         org:

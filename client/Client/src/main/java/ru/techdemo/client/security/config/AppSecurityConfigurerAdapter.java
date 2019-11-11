@@ -5,6 +5,7 @@
  */
 package ru.techdemo.client.security.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -15,8 +16,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //@EnableOAuth2Sso
 //@Configuration
 public class AppSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
-    @Override
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    protected void configure(HttpSecurity http) throws Exception {
+    //@Override
+    public void configure(HttpSecurity http) throws Exception { 
+        http.csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/openid-connect/auth/**",
+              "/login").permitAll()
+            .anyRequest().authenticated().and()
+            .logout().permitAll().logoutSuccessUrl("/");
     }
+    
+    //@Autowired
+    //private ResourceServerTokenServices resourceServerTokenServices;
 }

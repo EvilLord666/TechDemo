@@ -1,8 +1,12 @@
-############################################### OVERALL DESCRIPTION #########################################################################
+############################################### OVERALL DESCRIPTION ########################################################################
 Project contains 2 types of projects
     1) Resource Server is serviceProvider - allow access to resource for authenticated users who have rights (authorization) to access
        In current example all users are allowed to access if they received valid token
-    2) Client app : we log into client app through Authorization Server
+    2) Client app : Client is actually a Web application but in terms of OAuth2.0 it a client of authorization server
+############################################################################################################################################
+############################################### APPLICATION RUN ############################################################################
+mvn clean spring-boot:run
+
 ############################################################################################################################################
 ########################################################## OAUTH2 TERMS ####################################################################
 Resource Owner — an entity that is able to grant access to its protected resources
@@ -13,7 +17,7 @@ Client — an entity that is capable of obtaining access tokens from authorization
 Spring:
 @EnableResourceServer configures component as entity that can obtain access_token (in my final case it External Identity Server = KeyCloak or OpenAm)
 @EnableOAuth2Sso makes application an OAuth2 client
-############################################################################################################################################
+#############################################################################################################################################
 ############################################### RESOURCE SERVER DESCRIPTION SECTION #########################################################
 Project contains following components and layers
     1) DAL - data access layer containing:

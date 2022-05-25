@@ -10,7 +10,7 @@
     <packaging>war</packaging>
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <spring.version>5.2.0.RELEASE</spring.version>
+        <spring.version>5.5.7</spring.version>
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
         <oauth-auto.version>2.1.0.RELEASE</oauth-auto.version>
         <!--
